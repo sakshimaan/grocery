@@ -10,4 +10,6 @@ interface ItemService{
     fun partialUpdate(item: Item, id: String): Item
     fun deleteOne(id:String)
     fun deleteAll(items: List<Item>)
+    fun getByName(name:String):Item?
+    //fun getAllDetails():List<Item>
 }

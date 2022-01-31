@@ -1,12 +1,12 @@
 package com.store.groceries.items.service
-
 import com.store.groceries.items.model.Item
 import com.store.groceries.items.repository.ItemRepository
+import com.store.groceries.organizations.repository.OrganizationRepository
 import org.springframework.stereotype.Service
 import java.util.*
 
 @Service
-class ItemServiceImpl(private var repository: ItemRepository): ItemService {
+class ItemServiceImpl(private var repository: ItemRepository, private var orgRepository: OrganizationRepository): ItemService {
 
     override fun getOne(id: String): Item {
         return repository.findById(id).orElseThrow{RuntimeException("Item not found")}
@@ -47,4 +47,19 @@ class ItemServiceImpl(private var repository: ItemRepository): ItemService {
         return repository.deleteAll(items)
     }
 
+    override fun getByName(name: String): Item? {
+        var item = repository.findByName(name)
+        item?.let {
+            item.organization = orgRepository.findById(item.orgId!!).get()
+        }
+        return item
+    }
+
+//    override fun getAllDetails():List<Item> {
+//        var items = repository.findAll()
+//        items.let {
+//            items.organization = orgRepository.findById(items.orgId!!).get()
+//        }
+//        return items
+//    }
 }

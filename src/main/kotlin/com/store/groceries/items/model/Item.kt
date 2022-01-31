@@ -1,6 +1,9 @@
 package com.store.groceries.items.model
 
+import com.fasterxml.jackson.annotation.JsonIgnore
+import com.store.groceries.organizations.model.Organization
 import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.DBRef
 import org.springframework.data.mongodb.core.mapping.Document
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Pattern
@@ -8,6 +11,7 @@ import javax.validation.constraints.Pattern
 @Document("groceries") // is used to select collection name in MongoDB
 data class Item(
     @Id
+    @JsonIgnore
     var id:String?,
 
     //@Pattern(regexp = "[A-Za-z]{8}",message="length must be <= 8 and only alphabets are allowed")
@@ -18,5 +22,15 @@ data class Item(
     var quantity:String,
 
     @Pattern(regexp = "^[a-zA-Z0-9]{10}", message ="length should be <= 10")
-    var category:String
+    var category:String,
+
+    @JsonIgnore
+    open var orgId:String?,
+
+    @Transient
+    open var organization: Organization?
+
+//    @DBRef(lazy = true)
+//    var organizations:List<Organization>
+
 )

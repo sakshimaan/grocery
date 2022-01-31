@@ -17,17 +17,23 @@ import javax.validation.Valid
 class ItemController(private val itemService: ItemService){
 
     //ResponseEntity is used in controller methods to modify response with optional headers and status code
-    @GetMapping
+    @GetMapping("/all")
     fun getAllItems(): ResponseEntity<List<Item>> = ResponseEntity.ok(itemService.getAll())?:throw ResponseStatusException(HttpStatus.NOT_FOUND,"No item exist")
 
     @GetMapping("/{id}")
-    fun getOne(@PathVariable id:String):ResponseEntity<Item> {
+    fun getOne(@PathVariable("id") id:String):ResponseEntity<Item> {
         try {
             return ResponseEntity.ok(itemService.getOne(id))
         } catch (e:Exception){
             throw ResponseStatusException(HttpStatus.NOT_FOUND,"Item not found")
         }
     }
+
+//    @GetMapping("/details")
+//    fun getAll():ResponseEntity<List<Item>> = ResponseEntity.ok(itemService.getAllDetails())
+
+    @GetMapping
+    fun getByName(@RequestParam("name") name:String):ResponseEntity<Item>? = ResponseEntity.ok(itemService.getByName(name))
 
     @PostMapping
     fun saveOne(@RequestBody @Valid item: Item):ResponseEntity<Item> {
