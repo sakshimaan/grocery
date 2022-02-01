@@ -12,7 +12,7 @@ class OrganizationServiceImp(private var repository: OrganizationRepository):Org
        return repository.save(organization)
     }
 
-    override fun getAll(): List<Organization> {
+    override fun getAllOrg(): List<Organization> {
         return repository.findAll()
     }
 
