@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*
 class OrganizationController(private val organizationService: OrganizationService) {
 
     @GetMapping
-    fun getAllOrg():ResponseEntity<List<Organization>> = ResponseEntity.ok(organizationService.getAll())
+    fun getAllOrg():ResponseEntity<List<Organization>> = ResponseEntity.ok(organizationService.getAllOrg())
 
 //    @GetMapping("/details")
 //    fun getAllDetails():Any = ResponseEntity.ok(organizationService.getAllDetails())

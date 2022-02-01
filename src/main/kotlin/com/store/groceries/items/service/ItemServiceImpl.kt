@@ -55,11 +55,15 @@ class ItemServiceImpl(private var repository: ItemRepository, private var orgRep
         return item
     }
 
-//    override fun getAllDetails():List<Item> {
-//        var items = repository.findAll()
-//        items.let {
-//            items.organization = orgRepository.findById(items.orgId!!).get()
-//        }
-//        return items
-//    }
+    override fun getAllDetails():List<Item> {
+        var items = repository.findAll()
+        items.forEach {
+            it.organization = orgRepository.findById(it.orgId!!).get()
+        }
+        return items
+    }
+
+    override fun getByOrg(orgId: String): List<Item>{
+        return repository.findByOrgId(orgId)
+    }
 }

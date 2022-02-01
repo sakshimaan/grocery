@@ -18,19 +18,18 @@ data class Item(
     @field:NotBlank
     var name:String,
 
-    @Pattern(regexp = "^[0-9]{2}", message = "Quantity should be < 100 and  only digits are allowed")
+   // @field:Pattern(regexp = "^\\d+\$", message = "Only digits are allowed in Quantity")
     var quantity:String,
 
-    @Pattern(regexp = "^[a-zA-Z0-9]{10}", message ="length should be <= 10")
+   // @field:Pattern(regexp = "^[a-zA-Z0-9]{10}", message ="length should be <= 10")
     var category:String,
 
     @JsonIgnore
-    open var orgId:String?,
+    var orgId:String?,
 
     @Transient
-    open var organization: Organization?
+    var organization: Organization?
 
 //    @DBRef(lazy = true)
 //    var organizations:List<Organization>
-
 )

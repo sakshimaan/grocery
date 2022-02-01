@@ -29,11 +29,15 @@ class ItemController(private val itemService: ItemService){
         }
     }
 
-//    @GetMapping("/details")
-//    fun getAll():ResponseEntity<List<Item>> = ResponseEntity.ok(itemService.getAllDetails())
+    @GetMapping("/details")
+    fun getAll():ResponseEntity<List<Item>> = ResponseEntity.ok(itemService.getAllDetails())
 
     @GetMapping
     fun getByName(@RequestParam("name") name:String):ResponseEntity<Item>? = ResponseEntity.ok(itemService.getByName(name))
+
+    @GetMapping("/orgId")
+    fun getByOrg(@RequestParam("orgId") orgId:String):ResponseEntity<List<Item>> = ResponseEntity.ok(itemService.getByOrg(orgId))
+
 
     @PostMapping
     fun saveOne(@RequestBody @Valid item: Item):ResponseEntity<Item> {
