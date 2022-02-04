@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service
 import java.util.*
 
 @Service
-class OrganizationServiceImp(private var repository: OrganizationRepository):OrganizationService {
+class OrganizationServiceImp(private val repository: OrganizationRepository):OrganizationService {
 
     override fun create(organization: Organization): Organization {
         organization.orgId = UUID.randomUUID().toString()
