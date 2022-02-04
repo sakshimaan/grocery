@@ -3,7 +3,6 @@ package com.store.groceries.items.model
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.store.groceries.organizations.model.Organization
 import org.springframework.data.annotation.Id
-import org.springframework.data.mongodb.core.mapping.DBRef
 import org.springframework.data.mongodb.core.mapping.Document
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Pattern
