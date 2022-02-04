@@ -20,7 +20,7 @@ class ItemController(private val itemService: ItemService){
         } catch (e: ItemControllerExceptions){
             throw ItemControllerExceptions("Not found")
         } catch (e:Exception){
-            throw IllegalArgumentException("Item not found")
+            throw ItemControllerExceptions("Item not found")
         }
     }
 
@@ -31,7 +31,7 @@ class ItemController(private val itemService: ItemService){
         } catch (e: ItemControllerExceptions){
             throw ItemControllerExceptions("Not found")
         }catch (e:Exception){
-            throw java.lang.IllegalArgumentException("Item not found")
+            throw ItemControllerExceptions("Item not found")
         }
     }
 
