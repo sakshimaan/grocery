@@ -1,14 +1,10 @@
 package com.store.groceries.organizations.model
 
 import com.fasterxml.jackson.annotation.JsonIgnore
-import com.store.groceries.items.model.Item
 import org.hibernate.validator.constraints.Length
 import org.springframework.data.annotation.Id
-import org.springframework.data.mongodb.core.mapping.DBRef
 import org.springframework.data.mongodb.core.mapping.Document
-import org.springframework.data.mongodb.core.mapping.Field
 import javax.validation.constraints.Size
-import kotlin.math.min
 
 @Document("organization")
 data class Organization(

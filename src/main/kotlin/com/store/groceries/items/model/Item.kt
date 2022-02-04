@@ -14,14 +14,14 @@ data class Item(
     @JsonIgnore
     var id:String?,
 
-    //@Pattern(regexp = "[A-Za-z]{8}",message="length must be <= 8 and only alphabets are allowed")
+    @Pattern(regexp = "[A-Za-z]{8}",message="length must be <= 8 and only alphabets are allowed")
     @field:NotBlank
     var name:String,
 
-   // @field:Pattern(regexp = "^\\d+\$", message = "Only digits are allowed in Quantity")
+   @field:Pattern(regexp = "^\\d+\$", message = "Only digits are allowed in Quantity")
     var quantity:String,
 
-   // @field:Pattern(regexp = "^[a-zA-Z0-9]{10}", message ="length should be <= 10")
+   @field:Pattern(regexp = "^[a-zA-Z0-9]{10}", message ="length should be <= 10")
     var category:String,
 
     @JsonIgnore
