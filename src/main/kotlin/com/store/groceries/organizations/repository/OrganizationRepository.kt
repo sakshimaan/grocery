@@ -5,5 +5,4 @@ import org.springframework.data.mongodb.repository.MongoRepository
 import org.springframework.data.mongodb.repository.Query
 import org.springframework.data.repository.query.Param
 
-interface OrganizationRepository : MongoRepository<Organization,String>{
-}
+interface OrganizationRepository : MongoRepository<Organization,String>
