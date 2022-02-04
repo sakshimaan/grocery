@@ -10,36 +10,37 @@ import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.context.request.WebRequest
 import java.lang.RuntimeException
+import java.time.ZonedDateTime
 
 @ControllerAdvice
 class ExceptionHandler{
 
     @ExceptionHandler
     fun handleOrgService(ex: OrgServiceExceptions):ResponseEntity<ErrorResponse>{
-        var errorOrgSer = ErrorResponse(HttpStatus.NOT_FOUND.value(),ex.message,System.currentTimeMillis())
+        val errorOrgSer = ErrorResponse(HttpStatus.NOT_FOUND.value(),ex.message,ZonedDateTime.now().toLocalDateTime())
         return ResponseEntity(errorOrgSer,HttpStatus.NOT_FOUND)
     }
 
     @ExceptionHandler
     fun handleOrgController(ex: OrgControllerExceptions):ResponseEntity<ErrorResponse>{
-        var errorOrgCon = ErrorResponse(HttpStatus.NOT_FOUND.value(),ex.message,System.currentTimeMillis())
+        val errorOrgCon = ErrorResponse(HttpStatus.NOT_FOUND.value(),ex.message,ZonedDateTime.now().toLocalDateTime())
         return ResponseEntity(errorOrgCon,HttpStatus.NOT_FOUND)
     }
 
     @ExceptionHandler
     fun handleItemService(ex: ItemServiceExceptions, req:WebRequest):ResponseEntity<ErrorResponse>{
-        var errorItemSer = ErrorResponse(HttpStatus.NOT_FOUND.value(),ex.message,System.currentTimeMillis())
+        val errorItemSer = ErrorResponse(HttpStatus.NOT_FOUND.value(),ex.message,ZonedDateTime.now().toLocalDateTime())
         return ResponseEntity(errorItemSer,HttpStatus.NOT_FOUND)
     }
 
     @ExceptionHandler
     fun handleItemController(ex: ItemControllerExceptions, req:WebRequest):ResponseEntity<ErrorResponse>{
-        var errorItemCon = ErrorResponse(HttpStatus.NOT_FOUND.value(),ex.message,System.currentTimeMillis())
+        val errorItemCon = ErrorResponse(HttpStatus.NOT_FOUND.value(),ex.message,ZonedDateTime.now().toLocalDateTime())
         return ResponseEntity(errorItemCon,HttpStatus.NOT_FOUND)
     }
     @ExceptionHandler
     fun runTime(ex: RuntimeException):ResponseEntity<ErrorResponse>{
-        var error = ErrorResponse(HttpStatus.NOT_FOUND.value(),ex.message,System.currentTimeMillis())
+        val error = ErrorResponse(HttpStatus.NOT_FOUND.value(),ex.message,ZonedDateTime.now().toLocalDateTime())
         return ResponseEntity(error,HttpStatus.NOT_FOUND)
     }
 }
