@@ -8,12 +8,13 @@ Read - GET</br>
 Update - PUT</br>
 Delete - DELETE</br></b>
 This project was created using https://start.spring.io/ as a start with following option</br></br>
-<li>Project – Gradle Project</br></li>
-<li>Language – Kotlin</br></li>
-<li>Spring Boot - 2.6.3</br></li>
-<li>Packaging – jar</br></li>
-<li>Java – 17</br></br></li>
+<li>Project – Gradle Project</li>
+<li>Language – Kotlin</li>
+<li>Spring Boot - 2.6.3</li>
+<li>Packaging – jar</li>
+<li>Java – 17</br></li>
 Dependencies</br>
-<li>Spring Web</br></li>
-<li>Spring data Mongodb</li></br>
+<li>Spring Web</li>
+<li>Spring data Mongodb</li>
+<li>Validation</li></br>
 IDE used for development – IntelliJ IDEA 2021.3.1 (Community Edition)
